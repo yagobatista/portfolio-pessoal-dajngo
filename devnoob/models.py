@@ -4,7 +4,7 @@ from django.db import models
 # Create your models here.
 class Portfolio(models.Model):
     titulo = models.CharField(max_length = 100)
-    imagem = models.CharField(max_length = 200)
+    imagem = models.ImageField(upload_to='portfolio')
     link = models.URLField()
     conteudo = models.TextField()
     def __str__(self):
@@ -37,8 +37,8 @@ class Perfil(models.Model):
     cargo = models.CharField(max_length = 100)
     email = models.CharField(max_length = 300)
     telefone = models.CharField(max_length = 15)
-    foto_perfil = models.CharField(max_length = 200)
+    foto_perfil = models.ImageField(upload_to='perfil')
     mensagem = models.TextField()
     servicos = models.TextField()
     def __str__(self):
-        return self.titulo
+        return self.nome
